@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-3 mb-3 mt-1">
+      {% include "info_user.html" %}
+      <li class="list-group-item">
+          <a
+            class="btn btn-lg btn-light"
+            href="{% url 'profile_unfollow' profile.username %}" role="button">
+            Отписаться
+          </a>
+          <a
+            class="btn btn-lg btn-primary"
+            href="{% url 'profile_follow' profile.username %}" role="button">
+            Подписаться
+          </a>
+      </li> 
+     <!-- Начало блока с отдельным постом -->
+        <div class="card mb-3 mt-1 shadow-sm">
+          <div class="card-body">
+            <p class="card-text"></p>
+              {% for post in page %}
+              {% include "post_item.html" with post=post %} 
+            {% endfor %}
+          </div>
+        </div>
+     {% include "paginator.html" %}
+{% endblock %}
+     </div>
+  </div>
+</main>

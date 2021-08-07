@@ -1,0 +1,14 @@
+﻿{% extends "base.html" %} 
+{% block content %} 
+<main role="main" class="container"> 
+    <div class="row"> 
+      <div class="col-md-3 mb-3 mt-1"> 
+        {% include "info_user.html" %}
+        <div>
+        {% include "post_item.html" with post=post %} 
+        </div>
+        {% include "comments.html" %}
+        
+        {% endblock %} 
+      </div>   
+  </main> 
